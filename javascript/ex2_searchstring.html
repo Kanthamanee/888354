@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ex2_searchstring</title>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		p{
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<script type="text/javascript">
+	function search_submit(){
+	     var text = document.getElementById("textinput").value;
+	     var search = document.getElementById("search").value;
+	     var radio = document.querySelector('input[name = "radio"]:checked').value;
+	     var str = text.split(" ");
+	     if (radio == "yes") {
+	     	var count = 0;
+		    for(var i = 0; i < str.length; i++){
+				if(str[i] == search){
+			    	count++;
+			    }
+			    else{}
+			}
+		 }else{
+		 	var count = 0;
+		 	var tex_no = text.toLowerCase();
+		 	var search_no = search.toLowerCase();
+		 	var str_no =  tex_no.split(" ");
+		 	for(var i = 0; i < str_no.length; i++){
+			    if(str_no[i] == search_no){
+			    	count++;
+			    }		     
+			}
+		 }
+		 document.getElementById('Result').innerHTML = count;
+	}
+</script>
+
+<body>
+	<h1>Ex2-Sarch String Non Sensitive Case</h1>
+	<hr>
+	<p>Text input : <textarea rows="4" cols="50" id="textinput"></textarea></p>
+	<p>Sensitive case :  
+		<input type="radio" name="radio" value="yes">Yes&emsp;
+		<input type="radio" name="radio" value="no">No</p>
+		<p>Search : <input type="text" id="search"  name="search"></p>
+		<p><button onclick="search_submit();">Search</button></p>
+		<br><br>
+		<p>Result for Search: <span id="Result"></span></p>
+
+</body>
+</body>
+</html>
