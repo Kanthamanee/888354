@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>ex_randomNumber</title>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		p{
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    random();
+	});
+	function random(){
+		var max = 999;
+		var min = -999;
+		var numrandom1 = Math.floor(Math.random()*(max-min)+min);
+		var numrandom2 = Math.floor(Math.random()*(max-min)+min);
+		$("#number").html(numrandom1 + " + "+ numrandom2 + " = ");
+		var sum = numrandom1 + numrandom2;
+		$("#anss").val(sum);
+
+	}
+	function result(){
+		var result = $("#ans").val();
+		var answer = $("#anss").val();
+		//alert(result);
+		if(result == answer){
+			$("#res_anw").html("That's correct").css("color","green");
+		}else{
+			$("#res_anw").html("That's wrong. The answer is " + answer).css("color","red");
+		}
+	}
+	//
+</script>
+
+<body>
+	<h1>Ex - Random Number gor Answer</h1>
+	<hr>
+	<p><button onclick="random(); ">Random Number</button></p>
+
+	<p><a id = "number"> </a>
+	   <input type="text" name="answer" id="ans"></p>
+	   <input type="hidden" name="" id="anss">
+	<p><button onclick="result();">Send Number</button></p>
+	<p>Result : &nbsp;<a id="res_anw"></a></p>
+</body>
+</html>
